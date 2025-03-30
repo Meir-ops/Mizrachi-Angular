@@ -10,20 +10,8 @@
       </div>
       <div class="box box2">
         <div class="form-container">
-          <label for="breed">Select Breed:</label>
-          <div class="search-box" style="margin-top: 20px;">
-            <mat-form-field>
-              <mat-label>Select an option</mat-label>
-              <mat-select [(value)]="selected">
-                <mat-option>None</mat-option>
-                <mat-option *ngFor="let item of birds; let i = index" [value]="i">
-                  {{ item }}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-            <br>
-          </div>
-          <select id="breed" [(ngModel)]="selectedBreed" (change)="onBreedSelect()">
+          <h3 for="breed">Select Breed:</h3>
+          <select id="breed" [(ngModel)]="selectedBreed" (change)="onBreedSelect()" style="width: 30%;display:inline;">
             <option *ngFor="let breed of filteredBreeds" [value]="breed.name">
               {{ breed.name }} 
             </option>
@@ -31,7 +19,7 @@
 
           <!-- ✅ Display the Selected Breed Image -->
           <div *ngIf="selectedBreedImage">
-            <h3>You selected: {{ selectedBreed }}</h3>
+            <h5>You selected: {{ selectedBreed }}</h5>
             <img [src]="selectedBreedImage" alt="Selected breed image" class="dog-image" />
           </div>
         </div>

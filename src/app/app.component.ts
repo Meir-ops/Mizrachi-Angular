@@ -1,7 +1,7 @@
 import { Component, computed, inject, OnDestroy } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MatTabsModule } from '@angular/material/tabs';
-import { MatSelectModule } from '@angular/material/select';
+import { MatSelectChange, MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
@@ -123,6 +123,11 @@ export class AppComponent implements OnDestroy {
           this.selectedBreedImage = response.message;
         });
     }
+  }
+  selectedValue: string | undefined;
+  onSelectionChange(event: MatSelectChange) {
+    console.log('Selected value:', event.value);
+    // Perform any other actions you need here
   }
 
   // Returns appropriate error messages for form validation
