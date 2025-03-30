@@ -1,0 +1,96 @@
+<mat-tab-group>
+  <mat-tab label="Search">
+    
+    <div class="search-box">
+    </div>
+    <br>
+    <div class="container">
+      <div class="box box1">
+         <app-picture-grid></app-picture-grid>
+      </div>
+      <div class="box box2">
+        <div class="form-container">
+          <label for="breed">Select Breed:</label>
+          <div class="search-box" style="margin-top: 20px;">
+            <mat-form-field>
+              <mat-label>Select an option</mat-label>
+              <mat-select [(value)]="selected">
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let item of birds; let i = index" [value]="i">
+                  {{ item }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <br>
+          </div>
+          <select id="breed" [(ngModel)]="selectedBreed" (change)="onBreedSelect()">
+            <option *ngFor="let breed of filteredBreeds" [value]="breed.name">
+              {{ breed.name }} 
+            </option>
+          </select>
+
+          <!-- ✅ Display the Selected Breed Image -->
+          <div *ngIf="selectedBreedImage">
+            <h3>You selected: {{ selectedBreed }}</h3>
+            <img [src]="selectedBreedImage" alt="Selected breed image" class="dog-image" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </mat-tab>
+  <mat-tab label="Submitting Request">
+    <span class="search-box" style="margin-top: 20px;color: dodgerblue  ;">Requesting Dog Adoption</span>
+    <div class="max-w-md mx-auto p-6 border rounded-xl shadow-lg bg-white">
+      <h2 class="text-2xl font-bold mb-6 text-center text-gray-700">Dog Adoption Request</h2>
+      <form [formGroup]="adoptionForm" (ngSubmit)="onSubmit()" class="space-y-6">
+        <div>
+          <label class="block font-medium text-gray-700">Weight (kg)</label>
+          <input type="number" formControlName="weight" class="input-field" />
+          <div *ngIf="adoptionForm.get('weight')?.invalid && adoptionForm.get('weight')?.touched" class="error-message">
+            {{ getErrorMessage('weight') }}
+          </div>
+        </div>
+        <div style="height: 20px;"></div>
+        <div>
+          <label class="block font-medium text-gray-700">Colour</label>
+          <select formControlName="colour" class="dropdown-field">
+            <option value="">Select a colour</option>
+            <option *ngFor="let c of colours" [value]="c">{{ c }}</option>
+          </select>
+          <div *ngIf="adoptionForm.get('colour')?.invalid && adoptionForm.get('colour')?.touched" class="error-message">
+            {{ getErrorMessage('colour') }}
+          </div>
+        </div>
+        <div style="height: 20px;"></div>
+
+        <div class="checkbox-container"  id="checkbox">
+          <span><input type="checkbox" formControlName="firstAdoption" class="w-5 h-5" style="margin-top: 15px;" /><label class="text-gray-700">Is this your first adoption?</label></span>
+          
+        </div>
+        
+        
+        
+        <div style="height: 20px;"></div>
+
+        <div>
+          <label class="block font-medium text-gray-700">Age (years)</label>
+          <input type="number" formControlName="age" class="input-field" />
+          <div *ngIf="adoptionForm.get('age')?.invalid && adoptionForm.get('age')?.touched" class="error-message">
+            {{ getErrorMessage('age') }}
+          </div>
+        </div>
+        <div style="height: 20px;"></div>
+
+        <button type="submit" [disabled]="adoptionForm.invalid || loading" class="submit-btn">
+          <span *ngIf="loading" class="spinner"></span>
+          <span *ngIf="!loading">Submit</span>
+        </button>
+      </form>
+      <p *ngIf="submitted" class="mt-4 text-green-600 text-center">Your adoption request has been registered in the
+        system.</p>
+    </div>
+  </mat-tab>
+</mat-tab-group>
+
+<router-outlet />

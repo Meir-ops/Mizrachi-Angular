@@ -1,0 +1,14 @@
+<div class="grid">
+    <div class="grid-item" *ngFor="let image of birds">
+      <img [src]="image" [alt]="image.alt" (click)="showPopup(image)" />
+    </div>
+  </div>
+
+
+  <div class="popup-overlay" *ngIf="isPopupVisible" (click)="closePopup()">
+    <div class="popup-content" (click)="$event.stopPropagation()">
+      <img *ngIf="selectedImage" [src]="selectedImage" [alt]="">
+      <br>
+      <button (click)="closePopup()">Close</button>
+    </div>
+  </div>

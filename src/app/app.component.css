@@ -1,0 +1,183 @@
+.search-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.multicolumn-list {
+  padding-left: 30px;
+  list-style: none;
+  /* Remove default bullet points */
+  padding: 0;
+  margin: 0;
+  column-count: 3;
+  /* Specify the number of columns */
+  column-gap: 20px;
+  /* Optional: Add some space between columns */
+}
+
+.multicolumn-list li {
+  break-inside: avoid-column;
+  /* Optional: Try to prevent items from breaking across columns */
+}
+
+@import "~@angular/cdk/overlay-prebuilt.css";
+
+.ks-modal-gallery-backdrop {
+  background: #000 !important;
+  ;
+  opacity: 0.85 !important;
+  ;
+}
+
+.ks-modal-gallery-panel {
+  z-index: 90000 !important;
+}
+
+.input-field {
+  width: 98%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.dropdown-field {
+  width: 99%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.dropdown-field:focus{
+  border-color: #007BFF;
+}
+
+.input-field:focus {
+  border-color: #007BFF;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #007BFF;
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+}
+
+.submit-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.error-message {
+  color: #D32F2F;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid white;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.container {
+  display: flex;
+  width: 100%;
+}
+.box {
+  flex: 1;
+  padding: 20px;
+  text-align: center;
+  font-size: 20px;
+}
+.box1 {
+  background-color: lightblue;
+}
+.box2 {
+  background-color: lightblue;
+}
+
+.form-container {
+  max-width: 100%;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+select, input {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.checkbox {
+  text-align: left !important; /* Override the global center alignment */
+  justify-content: flex-start !important; /* Override flexbox centering */
+  place-items: start !important; /* Override grid centering */
+}
+
+.page-container {
+  text-align: center; /* This is causing the centering */
+}
+
+.div {
+  text-align: left !important; /* This is being overridden */
+  width: 200px;
+}
+
+div.div { /* Or whatever selector you're using */
+  text-align: left !important;
+}
+
+/* YourComponent.component.css */
+.checkbox-container {
+  text-align: left; /* Keep the container aligned left */
+  width: 100%;
+  align-self: baseline;
+}
+
+.checkbox-container span {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.checkbox-container label {
+  margin-right: 8px; /* Optional: Add some spacing between label and checkbox */
+}
+
+.dog-image{
+  width: 80%;
+}

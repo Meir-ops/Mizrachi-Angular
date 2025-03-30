@@ -1,0 +1,23 @@
+.img-container{
+    width: 100%;
+}
+
+.img-container img{
+    // width: 50%;
+    height: 80%;
+}
+
+.img-prev{
+    margin-top: 10px;
+}
+
+.img-slide {
+    display: inline-block;
+    width: 100px;
+    margin: 0 1px;
+    cursor: pointer;
+}
+
+gallery-thumbs .g-slider {
+    left: 75px !important;
+ }
