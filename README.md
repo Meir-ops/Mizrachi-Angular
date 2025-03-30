@@ -6,7 +6,7 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 ## Initialize project
 
 To initialize the project:
-cd <dir name>
+cd \<dir name\>
 npm install
 
 ## Development server
